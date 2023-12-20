@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button icon-only>
+          <img src="../assets/ibm.png" alt="ibm" height="20" width="40">
+        </button>
+      </ion-buttons>
+      <ion-title color="primary">My Account</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+      <ion-list>
+          <ng-container *ngIf="data">
+          <ion-item-sliding no-padding margin-bottom *ngFor="let card of data.Account">
+            <ion-item no-padding lines="none">
+              <ion-grid [class.cardON]="card.Activate===true" [class.cardOFF]="card.Activate===false">
+                <ion-row>
+                  <ion-col class="state">
+                    <div class="msg" (click)="go(card.AccountName, card.Balance)">
+                      <span [class.ON]="card.Activate===true" [class.OFF]="card.Activate===false"></span> 
+                      <ng-container *ngIf="card.Activate===true" >
+                      Active
+                      </ng-container>
+                      <ng-container *ngIf="card.Activate===false">
+                          Inactive
+                          </ng-container>
+                    </div>
+                  </ion-col>
+                  <ion-col class="logo" *ngIf="card.AccountName==='Visa Card'">
+                    <img class="brand" src="assets/visa.png"  height="30" width="80">
+                  </ion-col>
+                  <ion-col class="logo" *ngIf="card.AccountName==='American Express'">
+                      <img class="brand" src="assets/american.png"  height="30" width="80">
+                    </ion-col>
+                    <ion-col class="logo" *ngIf="card.AccountName==='Master Card'">
+                        <img class="brand" src="assets/mastercard.png"  height="30" width="80">
+                      </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="chip">
+                    <img src="assets/chip.png"  height="40" width="50">
+                  </ion-col>
+                </ion-row>
+                <ion-row class="digits">
+                  <ion-col class="number">
+                    123
+                  </ion-col>
+                  <ion-col class="number">
+                    4567
+                  </ion-col>
+                  <ion-col class="number">
+                   567
+                  </ion-col>
+                  <ion-col class="number">
+                    5678
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="date">
+                    Balance: {{card.Balance}}
+                  </ion-col>
+                  <ion-col class="bank">
+                    cumulus
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+            <ion-item-options padding side="end" color="white" (click)="update(card._id)">
+              <ion-icon id="power" color="primary" name="power"></ion-icon>
+            </ion-item-options>
+          </ion-item-sliding>
+          </ng-container>
+        </ion-list>
+
+    </ion-content>
+  <ion-footer no-border>
+
+    <footer>
+      <p class="copyright">© IBM 2019 </p>
+  </footer>
+  
+  </ion-footer>

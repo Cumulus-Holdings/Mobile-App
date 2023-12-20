@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <img src="../assets/ibm.png" alt="ibm" height="20" width="40">
+      </button>
+    </ion-buttons>
+    <ion-title color="primary">Bills</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="masters">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="show">
+    <ion-list>
+      <ng-container *ngFor="let card of show.Billing">
+        <ion-item *ngIf="card.Payed===false">
+          <ion-thumbnail item-start *ngIf="card.Product==='Home Entertainment' && card.Payed ===false">
+            <img src="assets/etisalat.png" height="10" width="10">
+          </ion-thumbnail>
+          <ion-thumbnail item-start *ngIf="card.Product==='Water And Electricity' && card.Payed ===false">
+            <img src="assets/dewa.png" height="10" width="10">
+          </ion-thumbnail>
+          <ion-thumbnail item-start *ngIf="card.Product==='Phone' && card.Payed ===false">
+            <img src="assets/du.png" height="10" width="10">
+          </ion-thumbnail>
+          <h2 *ngIf="card.Payed ===false" >{{card.Product}}</h2>
+          <p *ngIf="card.Payed ===false" >{{card.Price}} DHS</p>
+          <button ion-button clear item-end *ngIf="card.Payed===false" (click)="pay(card._id,card.Price, card.Product)">
+            Pay</button>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+  </ng-container>
+</ion-content>
+
+<ion-footer no-border>
+
+  <footer>
+    <p class="copyright">© IBM 2019 </p>
+  </footer>
+
+</ion-footer>

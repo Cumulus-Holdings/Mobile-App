@@ -1,0 +1,8 @@
+apiVersion: cumulusbank.com/v1alpha1
+kind: CumulusIonic
+metadata:
+  name: ionicapp
+spec:
+  replicaCount: 1
+  metadata: 
+    namespace: "cumulusbank"

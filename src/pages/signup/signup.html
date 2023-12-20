@@ -1,0 +1,55 @@
+<ion-content class="background">
+  <ion-card>
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person" color="dark"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="First Name" [(ngModel)]="firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="person" color="dark"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Last Name" [(ngModel)]="lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="body" color="dark"></ion-icon>
+          </ion-label>
+          <ion-input type="number" placeholder="Age" [(ngModel)]="age"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="call" color="dark"></ion-icon>
+          </ion-label>
+          <ion-input type="text" placeholder="Mobile" [(ngModel)]="mobile"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="at" color="dark"></ion-icon>
+          </ion-label>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="medical" color="dark"></ion-icon>
+          </ion-label>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <button ion-button block outline color="light" (click)="signup()">Signup</button>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+  <button class="bottom" ion-button clear full color="light" (click)="signin()">Already have an account? Sign in</button>
+</ion-content>
+
+<ion-footer no-border>
+
+  <footer>
+    <p class="copyright">© IBM 2019 </p>
+</footer>
+
+</ion-footer>

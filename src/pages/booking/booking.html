@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <img src="../assets/ibm.png" alt="ibm" height="20" width="40">
+      </button>
+    </ion-buttons>
+    <ion-title color="primary">Transaction</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="danger" (click)="cancel()">
+        CANCEL
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col text-center>
+      <!-- <ngx-gauge [type]="gaugeType" [value]="gaugeValue" [label]="gaugeLabel" [min]=0 [max]=10000 [append]="gaugeAppendText">
+      </ngx-gauge> -->
+    </ion-col>
+  </ion-row>
+  <ng-container *ngIf="tx">
+    <div *ngFor="let card of tx">
+  <ion-list no-border *ngIf="card.AccountName === cardtype ">
+
+    <ion-list-header>
+      {{card.Date}}
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name='cart' item-start color="icon"></ion-icon>
+      Product
+      <ion-note item-end>
+        {{card.Product}}
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='cash' item-start color="icon"></ion-icon>
+      Price
+      <ion-note item-end>
+        {{card.Price}} AED
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='information-circle' item-start color="icon"></ion-icon>
+      Type
+      <ion-note item-end>
+        {{card.Type}}
+      </ion-note>
+    </ion-item>
+
+
+  </ion-list>
+  </div>
+  </ng-container>
+
+</ion-content>
+<ion-footer no-border>
+
+  <footer>
+    <p class="copyright">© IBM 2019 </p>
+  </footer>
+
+</ion-footer>
