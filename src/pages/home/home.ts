@@ -63,11 +63,13 @@ export class HomePage {
         this.data = dataID[0];
         console.log("data newww",this.data)
         loading.dismiss()
+/*        
         this.allservicesService.customerfeed(this.data['CurrentAccount']).subscribe(ledgerfeed=>{
           console.log('successs')
         }, (error)=> {
           console.log(error)
         })
+*/
       },(error)=>{
         loading.dismiss()
       })

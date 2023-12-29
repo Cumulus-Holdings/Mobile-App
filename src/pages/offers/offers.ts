@@ -68,11 +68,15 @@ export class OffersPage {
           "accountname": accountname ,
           "date": date
         }
+
+        /*
         this.allservicesService.utilitybill(billingdet).subscribe(utilitybill=>{
           console.log('suucess')
         }, error=> {
 
         })
+        */
+       
         this.allservicesService.addTransaction(this.data["_id"],this.bill['product'],this.bill['price'],id,accountname,"Bill",date).subscribe(dataID=>{
           const tempo = {
             "_id": this.data["_id"],
@@ -82,6 +86,8 @@ export class OffersPage {
             Bill: "bill",
             date: date
           }
+
+/*
           this.allservicesService.ledgerfeed(tempo).subscribe(ledgerfeed => {
             this.navCtrl.pop();
             console.log('suucess')
@@ -90,6 +96,8 @@ export class OffersPage {
             this.navCtrl.pop();
             console.log(error)
           })
+*/
+
           // this.allservicesService.sms('Your '+ this.bill['product']+' bill has been payed. Current '+accountname+' balance is '+ this.finalcredit,'+971509786313').subscribe(sms=>{
           //   console.log(sms);
           //   loading.dismiss()
