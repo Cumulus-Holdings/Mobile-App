@@ -34,6 +34,7 @@ export class ShopPage {
         console.log(element)
         if(element['Activate']){
           if(element['AccountName']==='Visa Card'){
+            /*
             this.allservicesService.odm('Visa','Gold',10517320,'','',[]).subscribe( visadata =>{
               this.visaOffers.push({
                 type: 'visa',
@@ -45,19 +46,24 @@ export class ShopPage {
             } , error =>{
               console.log(error)
             })
+            */
           }
-            if(element['AccountName']==='Master Card'){
-              this.allservicesService.odm('MasterCard','World',10517320,'','',[]).subscribe( masterdata =>{
-                this.masterOffers.push({
-                  type: 'master',
-                  offers: masterdata['creditCard']['cardOffers']
-                })
-                this.masterOffers = this.masterOffers[0];
-              } , error =>{
-                console.log(error)
+          
+          if(element['AccountName']==='Master Card'){
+          /*
+            this.allservicesService.odm('MasterCard','World',10517320,'','',[]).subscribe( masterdata =>{
+              this.masterOffers.push({
+                type: 'master',
+                offers: masterdata['creditCard']['cardOffers']
               })
+              this.masterOffers = this.masterOffers[0];
+            } , error =>{
+              console.log(error)
+            })
+          */
           }
           if(element['AccountName']==='American Express'){
+            /*
             this.allservicesService.odm('AMEX','Preferred',10517320,'','',[]).subscribe( americandata =>{
               this.amexOffers.push({
                 type: 'amex',
@@ -68,7 +74,8 @@ export class ShopPage {
             } , error =>{
               console.log(error)
             })
-        }
+            */
+           }
         }
       });
     }, error => {

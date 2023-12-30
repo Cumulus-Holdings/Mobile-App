@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AboutPage } from '../pages/about/about';
 import { ShopPage } from '../pages/shop/shop';
 
@@ -17,8 +17,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import {LoginService} from '../services/login-service/login.component.service'
 import {SignupService} from '../services/signup-service/signup.component.service'
 import { DashboardPage } from '../pages/dashboard/dashboard';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import {DashboardService} from '../pages/dashboard/dashboard.service'
 import {Provider} from '../provider/provider'
 import {ListingService} from '../services/listing-schedule-service/listing.component.service'
@@ -28,13 +28,9 @@ import {ChatService} from '../services/chat-service/chat.component.service'
 import {EmailService} from '../services/email-service/email.component.service'
 import {CheckinService} from '../services/checkin-service/checkin.component.service'
 import {AllservicesService} from '../services/allservices/allservices.component.service'
-import {NativeHttpWrapper} from 'ionic-native-http-angular-wrapper';
-import { Geolocation } from "@ionic-native/geolocation";
+import { Geolocation } from "@ionic-native/geolocation/ngx";
 import {OdmService} from '../services/odm-service/odm.component.service'
 import {ChatPage} from '../pages/chat/chat'
-import 'leaflet-routing-machine';
-import {  NavController} from 'ionic-angular';
-// import { NgxGaugeModule } from 'ngx-gauge';
 import { CarouselComponent } from '../components/carousel/carousel';
 
 @NgModule({
@@ -44,7 +40,7 @@ import { CarouselComponent } from '../components/carousel/carousel';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
+//    TabsPage,
     LoginPage,
     SignupPage,
     BookingPage,
@@ -56,9 +52,9 @@ import { CarouselComponent } from '../components/carousel/carousel';
   ],
   imports: [
     // NgxGaugeModule,
-    NativeHttpWrapper,
+    //NativeHttpWrapper,
     SharedModule,
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -68,7 +64,7 @@ import { CarouselComponent } from '../components/carousel/carousel';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
+//    TabsPage,
     LoginPage,
     SignupPage,
     BookingPage,

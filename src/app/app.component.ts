@@ -1,10 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform , Keyboard, Nav, MenuController, NavController} from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { timer } from 'rxjs/observable/timer';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { timer } from 'rxjs';
 import { LoginPage } from '../pages/login/login';
-import {TabsPage} from '../pages/tabs/tabs'
+//import {TabsPage} from '../pages/tabs/tabs'
 import * as jwtDecode from 'jwt-decode';
 import {Provider} from '../provider/provider'
 import {DashboardPage} from '../pages/dashboard/dashboard'
@@ -28,7 +29,7 @@ export class MyApp {
   rightMenuItems: Array<{ icon: string, active: boolean, page:any }>;
   state: any;
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public keyboard: Keyboard ,  public provider:Provider, public menuCtrl: MenuController
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, geolocation: Geolocation, public keyboard: Keyboard ,  public provider:Provider, public menuCtrl: MenuController
     ) {
       this.rightMenuItems = [
         { icon: 'home', active: true, page: 'DashboardPage' },

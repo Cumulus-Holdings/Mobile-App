@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class Provider {
   public apiUrl: any;
   public userData: any = null;
@@ -32,13 +34,14 @@ export class Provider {
       balanceUpdate: 'http://' + this.accountsUrl + "/accountsvc/balanceUpdate",
       addTransaction: 'http://' + this.accountsUrl + "/accountsvc/transaction",
       deleteAccount: 'http://' + this.accountsUrl + "/accountsvc/listAccount",
-      getsessionid:'http://' +this.url + "/aisvc/session",
+      getsessionid:'http://' +this.url + "/aisvc/session"  /*, 
       watsoncall: 'http://' +this.url + "/aisvc/watson",
       sms: 'http://' +this.url + "/send",
       odm:'http://' +this.url + "/odm",
       customerfeed: 'http://' + this.accountsUrl + "/accountsvc/customerfeed",
       ledgerfeed: 'http://' + this.accountsUrl + "/accountsvc/ledgerfeed",
       utilitybill: 'http://' + this.accountsUrl + "/accountsvc/utilitybill",
+      */
     };
   }
 }

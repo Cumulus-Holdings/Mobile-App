@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Headers, Http, RequestOptions, Response } from "@angular/http";
+import { HttpHeaders, HttpClient } from "@angular/common/http";
 import { Provider } from "../../provider/provider";
-import "rxjs/Rx";
+import { catchError, map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingService {
-  public constructor(public http: Http, public provider: Provider) {}
+  public constructor(public http: HttpClient, public provider: Provider) {}
 
   public booking(
     UserID,
@@ -28,11 +30,8 @@ export class BookingService {
       OfferTypeUpgrade,
       CostUpgrade
     );
-    const options = new RequestOptions({
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: this.provider.token
-      })
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json"
     });
     const link = this.provider.apiUrl.book;
     const bodyObject = {
@@ -47,28 +46,29 @@ export class BookingService {
     };
     const bodyString = JSON.stringify(bodyObject); // Stringify payload
     return this.http
-      .post(link, bodyObject, options) // ...using post request
-      .map((res: Response) => res.json())
-      .catch((error: any) => {
-        console.log(error);
-        return Observable.throw(error.json().error || "Server error");
-      });
+      .post(link, bodyObject, {headers}) // ...using post request
+      .pipe(
+        map((res: any) => res),
+        catchError((error: any) => {
+          console.log(error);
+          return Observable.throw(error.json().error || "Server error");
+        })
+      );
   }
 
   public listBookingByUser(ID): Observable<any> {
-    const options = new RequestOptions({
-      headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: this.provider.token
-      })
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json"
     });
     const link = this.provider.apiUrl.listBookingByUser + "/" + String(ID);
     return this.http
-      .get(link, options) // ...using post request
-      .map((res: Response) => res.json())
-      .catch((error: any) => {
-        console.log(error);
-        return Observable.throw(error.json().error || "Server error");
-      });
+      .get(link, {headers}) // ...using post request
+      .pipe(
+        map((res: any) => res),
+        catchError((error: any) => {
+          console.log(error);
+          return Observable.throw(error.json().error || "Server error");
+        })
+      );
   }
 }

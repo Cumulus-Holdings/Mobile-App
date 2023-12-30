@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import {  Http, Response } from "@angular/http";
+import {  HttpClient } from "@angular/common/http";
 import { Provider } from '../../provider/provider';
+import { map } from 'rxjs/operators';
 
 @Pipe({
   name: "isoToCountryName"
@@ -8,7 +9,7 @@ import { Provider } from '../../provider/provider';
 export class CountryRefactorPipe implements PipeTransform {
   public _url: any = "../assets/airports.json";
   public fullCountryName: any = "airport not found";
-  constructor(public http: Http , public provider:Provider) {
+  constructor(public http: HttpClient , public provider:Provider) {
     this.getJSON().subscribe(data => {
       this.provider.rawData = data;
     });
@@ -29,6 +30,6 @@ export class CountryRefactorPipe implements PipeTransform {
   public getJSON() {
     return this.http
       .get(this._url)
-      .map((response: Response) => response.json());
+      .pipe(map((res: any) => res))
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { TabsPage } from "../tabs/tabs";
+//import { TabsPage } from "../tabs/tabs";
 import { SignupPage } from "../signup/signup";
 import { DashboardPage } from "../dashboard/dashboard";
 
@@ -8,7 +8,7 @@ import { LoginService } from "../../services/login-service/login.component.servi
 import { AlertController, LoadingController } from "ionic-angular";
 import {Provider} from '../../provider/provider'
 import * as jwtDecode from 'jwt-decode';
-import { StatusBar } from '@ionic-native/status-bar';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AllservicesService } from "../../services/allservices/allservices.component.service";
 
 // import {ServicesService} from "../../services/services/services.component.services.ts"
