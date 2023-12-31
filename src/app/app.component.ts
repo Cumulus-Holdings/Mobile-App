@@ -1,19 +1,19 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform , Keyboard, Nav, MenuController, NavController} from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Platform , Keyboard, Nav, MenuController } from 'ionic-angular';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
+//import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { timer } from 'rxjs';
 import { LoginPage } from '../pages/login/login';
 //import {TabsPage} from '../pages/tabs/tabs'
-import * as jwtDecode from 'jwt-decode';
+//import * as jwtDecode from 'jwt-decode';
 import {Provider} from '../provider/provider'
 import {DashboardPage} from '../pages/dashboard/dashboard'
 import {ContactPage} from '../pages/contact/contact'
 import {MapPage} from '../pages/map/map'
 import {AboutPage} from '../pages/about/about'
 import { HomePage } from '../pages/home/home';
-import {BookingPage} from '../pages/booking/booking'
+//import {BookingPage} from '../pages/booking/booking'
 import { ShopPage } from '../pages/shop/shop';
 import { ChatPage } from '../pages/chat/chat';
 
@@ -29,7 +29,7 @@ export class MyApp {
   rightMenuItems: Array<{ icon: string, active: boolean, page:any }>;
   state: any;
   
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, geolocation: Geolocation, public keyboard: Keyboard ,  public provider:Provider, public menuCtrl: MenuController
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public keyboard: Keyboard ,  public provider:Provider, public menuCtrl: MenuController
     ) {
       this.rightMenuItems = [
         { icon: 'home', active: true, page: 'DashboardPage' },
@@ -71,7 +71,7 @@ export class MyApp {
     this.nav.setRoot(LoginPage);
   }
   goto(page){
-
+    console.log(page);
   }
   openPage(page) {
     // Reset the content nav to have just this page

@@ -8,7 +8,7 @@ import { LoginService } from "../../services/login-service/login.component.servi
 import { AlertController, LoadingController } from "ionic-angular";
 import {Provider} from '../../provider/provider'
 import * as jwtDecode from 'jwt-decode';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { AllservicesService } from "../../services/allservices/allservices.component.service";
 
 // import {ServicesService} from "../../services/services/services.component.services.ts"
@@ -101,7 +101,7 @@ export class LoginPage {
               this.navCtrl.push(DashboardPage);
               loading.dismiss();
             },(error)=>{
-
+              console.log(error);
             })
           }
           else{
@@ -109,6 +109,7 @@ export class LoginPage {
             loading.dismiss();
           }
         },(error)=>{
+          console.log(error);
           let alert = this.alertCtrl.create({
             title: "Alert!",
             subTitle: "OOOOPS... Something Went Wrong",

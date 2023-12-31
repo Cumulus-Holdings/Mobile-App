@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StatusBar } from '@ionic-native/status-bar';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
