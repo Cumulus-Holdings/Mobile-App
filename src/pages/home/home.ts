@@ -4,56 +4,36 @@ import { BookingPage } from "../booking/booking";
 import { ListingService } from "../../services/listing-schedule-service/listing.component.service";
 import { AlertController, LoadingController } from "ionic-angular";
 import { AllservicesService } from "../../services/allservices/allservices.component.service";
-import {Provider} from "../../provider/provider"
+import { Provider } from "../../provider/provider"
+import { HttpClient } from "@angular/common/http";
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
   public cards: any;
+  public _url: any = "../assets/cards.json";
   public data;
 
   constructor(
-    public navCtrl: NavController,
-    public listingService: ListingService,
-    private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,
-    public allservicesService:AllservicesService,
-    public provider:Provider
+    public navCtrl : NavController,
+    public listingService : ListingService,
+    private alertCtrl : AlertController,
+    public loadingCtrl : LoadingController,
+    public allservicesService : AllservicesService,
+    public provider : Provider,
+    public http : HttpClient
   ) {
-    this.cards = [
-      {
-        state: 'ON',
-        logo: "assets/visa.png",
-        a: 1234,
-        b: 5522,
-        c: 8432,
-        d: 2264,
-        expires: '9000',
-        bank: 'Cumulus Bank'
-      },
-      {
-        state: 'OFF',
-        logo: "assets/american.png",
-        a: 1234,
-        b: 5321,
-        c: 8283,
-        d: 9271,
-        expires: '8000',
-        bank: 'Cumulus Bank'
-      },
-      {
-        state: 'ON',
-        logo: "assets/mastercard.png",
-        a: 8685,
-        b: 2445,
-        c: 9143,
-        d: 7846,
-        expires: '7000',
-        bank: 'Cumulus Bank'
-      }
-    ];
+    this.cards = this.getJSON();
   }
+
+  public getJSON() {
+      return this.http
+        .get(this._url)
+        .pipe(map((res: any) => res))
+    }
   update(ID){
     let loading = this.loadingCtrl.create({
       content: "Please wait..."

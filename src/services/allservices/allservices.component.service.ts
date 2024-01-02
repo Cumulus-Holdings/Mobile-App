@@ -9,8 +9,15 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AllservicesService {
+  public _url = "../assets/newAccount.json" 
+
   public constructor(public http: HttpClient, public provider: Provider) {}
 
+  public getJSON() {
+    return this.http
+      .get(this._url)
+      .pipe(map((res: any) => res))
+  }
 /*
   public customerfeed(object): Observable<any> {
     const options = new RequestOptions({
@@ -75,77 +82,7 @@ export class AllservicesService {
         "Content-Type": "application/json"
       });
     const link = this.provider.apiUrl.addNewAccount;
-    const bodyObject = {
-      ID: ID,
-      CurrentAccount:[
-        {
-          Balance: 10000,
-          CuurentSpending:10000,
-          AccountName: "Current Account"
-        },
-        {
-          Balance: 30000,
-          CuurentSpending:30000,
-          AccountName: "Saving Account"
-        },
-        {
-          Balance: 90000,
-          CuurentSpending:90000,
-          AccountName: "Loan Account"
-        },
-        {
-          Balance: 900000,
-          CuurentSpending:900000,
-          AccountName: "Mortgage Account"
-        },
-        {
-          Balance: 3000,
-          CuurentSpending:3000,
-          AccountName: "Charity Account"
-        }
-      ],
-      Billing: [
-        {
-          Product: "Home Entertainment",
-          Price: 500,
-          type: "bill",
-          Payed: false
-        },
-        {
-          Product: "Water And Electricity",
-          Price: 1000,
-          type: "bill",
-          Payed: false
-        },
-        {
-          Product: "Phone",
-          Price: 100,
-          type: "bill",
-          Payed: false
-        }
-      ],
-      Transaction: [],
-      Account: [
-        {
-          Activate: false,
-          Balance: 0,
-          CuurentSpending: 0,
-          AccountName: "Visa Card"
-        },
-        {
-          Activate: false,
-          CuurentSpending:0,
-          Balance: 0,
-          AccountName: "American Express"
-        },
-        {
-          Activate: false,
-          CuurentSpending: 0,
-          Balance: 0,
-          AccountName: "Master Card"
-        }
-      ]
-    };
+    const bodyObject = this.getJSON();
     const bodyString = JSON.stringify(bodyObject); // Stringify payload
     return this.http
       .post(link, bodyObject, {headers}) // ...using post request

@@ -1,0 +1,32 @@
+[
+    {
+      "state": "ON",
+      "logo": "assets/visa.png",
+      "a": 1234,
+      "b": 5522,
+      "c": 8432,
+      "d": 2264,
+      "expires": "9000",
+      "bank": "Cumulus Bank"
+    },
+    {
+      "state": "OFF",
+      "logo": "assets/american.png",
+      "a": 1234,
+      "b": 5321,
+      "c": 8283,
+      "d": 9271,
+      "expires": "8000",
+      "bank": "Cumulus Bank"
+    },
+    {
+      "state": "ON",
+      "logo": "assets/mastercard.png",
+      "a": 8685,
+      "b": 2445,
+      "c": 9143,
+      "d": 7846,
+      "expires": "7000",
+      "bank": "Cumulus Bank"
+    }
+]
