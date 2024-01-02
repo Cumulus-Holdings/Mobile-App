@@ -30,10 +30,10 @@ export class HomePage {
   }
 
   public getJSON() {
-      return this.http
-        .get(this._url)
-        .pipe(map((res: any) => res))
-    }
+    return this.http
+      .get(this._url)
+      .pipe(map((res: any) => res))
+  }
   update(ID){
     let loading = this.loadingCtrl.create({
       content: "Please wait..."
