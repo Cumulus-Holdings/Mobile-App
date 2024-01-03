@@ -59,7 +59,7 @@
     "sass": "^1.69.6",
     "sleep": "^5.2.3",
     "sw-toolbox": "3.6.0",
-    "typescript": "^4.7.4",
+    "typescript": "^4.6.4",
     "webpack": "^5.89.0",
     "xmlbuilder": "^15.1.1",
     "zone.js": "^0.9.1"

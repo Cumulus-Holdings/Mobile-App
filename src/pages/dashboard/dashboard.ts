@@ -1,7 +1,7 @@
 import { Component, ViewChild } from "@angular/core";
 import { IonicPage, NavController, NavParams, Nav } from "ionic-angular";
 import { DashboardService } from "../dashboard/dashboard.service";
-import { Geolocation } from "@ionic-native/geolocation";
+// import { Geolocation } from "@ionic-native/geolocation";
 import { AlertController, LoadingController } from "ionic-angular";
 import { AllservicesService } from "../../services/allservices/allservices.component.service";
 import { Provider } from "../../provider/provider";
